@@ -1,0 +1,25 @@
+
+
+client=AI(api_key,base_url,default_model,其余的可选参数 model 温度 top等等)
+简单的接口
+client.ask(prompt,messages[可选],其余的可选参数 model 温度 top等等)
+client.stream_ask(prompt,messages[可选],其余的可选参数 model 温度 top等等)
+client.think(prompt,messages[可选],其余的可选参数 model 温度 top等等)
+client.ask_json(prompt,messages[可选],其余的可选参数 model 温度 top等等)
+会话接口
+session=client.session(system_prompt,其余的可选参数 model 温度 top等等)
+session.ask(current_prompt,其余的可选参数 model 温度 top等等)
+session.steam_ask(current_prompt,,其余的可选参数 model 温度 top等等)
+session.think(prompt,messages[可选],其余的可选参数 model 温度 top等等)
+session.ask_json(prompt,messages[可选],其余的可选参数 model 温度 top等等)
+会话管理部分
+    使用数据库的话 [先实现这个]
+        db=client.load_db("xx.db",[这些都是可选的参数哦]db="sqlite"[默认],db="ai_message",session_id=xx)
+        db.view_session()   //查看全部的session_id
+        db.view_session_id() //查看该session_id的全部会话哦
+        db.load_session(session_id,update=bool[如果是true 就会产生新的session_id])
+    使用json的话
+        js=client.load_json("xx.json",[这些都是可选的参数哦]db="sqlite"[默认],db="ai_message",session_id=xx)
+        js.view_session()   //查看全部的session_id
+        js.view_session_id() //查看该session_id的全部会话哦
+        js.load_session(session_id,update=bool[如果是true 就会产生新的session_id])
